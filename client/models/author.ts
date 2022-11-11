@@ -1,6 +1,6 @@
-import { Content } from "./content";
+import { SlugContent } from "./content";
 
-export interface Author extends Content {
+export interface Author extends SlugContent {
   name: string;
   image: string;
 }

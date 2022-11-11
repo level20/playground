@@ -4,3 +4,7 @@ export interface Content {
   _createdAt?: string;
   _updatedAt?: string;
 }
+
+export interface SlugContent extends Content {
+  slug?: string;
+}
