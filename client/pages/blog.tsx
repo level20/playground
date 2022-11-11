@@ -1,29 +1,20 @@
+import { Card, List } from "antd";
 import { createClient } from "next-sanity";
-
-interface Post {
-  _id: string;
-  _type: string;
-  title: string;
-}
+import Blogs from "../components/blogs";
+import { BlogPost } from "../models/blog-post";
 
 interface BlogProps {
-  posts: Post[];
+  posts: BlogPost[];
 }
 
-export default function Blog({ posts }: BlogProps) {
+const Blog = ({ posts }: BlogProps) => {
   return (
     <>
       <h1>this is a blog</h1>
-      {posts.length > 0 && (
-        <ul>
-          {posts.map((post: Post) => (
-            <li key={post._id}>{post?.title}</li>
-          ))}
-        </ul>
-      )}
+      <Blogs posts={posts}></Blogs>
     </>
   );
-}
+};
 
 const client = createClient({
   projectId: "23sk8kbd",
@@ -34,6 +25,10 @@ const client = createClient({
 
 export async function getStaticProps() {
   const posts = await client.fetch(`*[_type == "post"]`);
+  console.log(posts);
+  console.log(posts[0].body);
+  console.log(posts[0].body.children);
+  console.log(posts[0].categories);
 
   return {
     props: {
@@ -41,3 +36,5 @@ export async function getStaticProps() {
     },
   };
 }
+
+export default Blog;
