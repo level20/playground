@@ -1,6 +1,7 @@
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Card, Col, Divider, Row, Typography } from "antd";
-const { Text, Paragraph } = Typography;
+const { Title, Paragraph } = Typography;
+
 import { BlogPost } from "../models/blog-post";
 
 interface BlogSummaryProps {
@@ -10,15 +11,7 @@ interface BlogSummaryProps {
 const BlogSummary = ({ blog }: BlogSummaryProps) => {
   return (
     <>
-      <Card
-        title={blog?.title}
-        style={{
-          margin: "8px",
-          padding: "16px",
-          width: "450px",
-          height: "300px",
-        }}
-      >
+      <Card title={blog?.title} style={{ padding: "16px" }}>
         <AuthorRow author={blog?.author}></AuthorRow>
         <Divider
           dashed={true}
@@ -41,7 +34,7 @@ const AuthorRow = ({ author }: any) => {
         <Avatar size="large" icon={<UserOutlined />} src={author?.image} />
       </Col>
       <Col span={20}>
-        <Text>{author?.name}</Text>
+        <Title level={4}>{author?.name}</Title>
       </Col>
     </Row>
   );
