@@ -26,8 +26,7 @@ export default function Blog({ posts }: BlogProps) {
 }
 
 const client = createClient({
-  projectId: process.env.SANITY_PROJECT_ID,
-  token: process.env.SANITY_TOKEN,
+  projectId: "23sk8kbd",
   dataset: "production",
   apiVersion: "2022-11-10",
   useCdn: false,
