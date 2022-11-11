@@ -1,17 +1,9 @@
 import { Col, Row } from "antd";
+import { Creation as CreationContent } from "../../models/creation";
 import Creation from "./creation";
 
-export interface Creation {
-  _id: string;
-  _type: string;
-  title: string;
-  description: string;
-  coverSrc: string;
-  href: string;
-}
-
 interface CreationListProps {
-  creations: Creation[];
+  creations: CreationContent[];
 }
 
 const CreationList = ({ creations }: CreationListProps) => {

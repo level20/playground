@@ -1,18 +1,20 @@
 import { createClient } from "next-sanity";
-import CreationList, { Creation } from "../components/creation/creation-list";
+import CreationList from "../components/creation/creation-list";
 import DefaultLayout from "../components/layout/default-layout";
+import { Creation } from "../models/creation";
+import { getCreations } from "../services/creations.service";
 
 export interface HomeProps {
   creations: Creation[];
 }
 
-export default function Home({ creations }: HomeProps) {
+const Home = ({ creations }: HomeProps) => {
   return (
     <DefaultLayout headerTitle="Creations">
       <CreationList creations={creations}></CreationList>
     </DefaultLayout>
   );
-}
+};
 
 const client = createClient({
   projectId: "23sk8kbd",
@@ -22,19 +24,12 @@ const client = createClient({
 });
 
 export async function getStaticProps() {
-  const creations = await client.fetch(`*[
-    _type == "creation"
-  ]
-  {
-    title,
-    "description": description[0].children[0].text,
-    "href": link,
-    "coverSrc": mainImage.asset->.url
-  }`);
-
+  const creations = await getCreations();
   return {
     props: {
       creations,
     },
   };
 }
+
+export default Home;
