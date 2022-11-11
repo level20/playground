@@ -4,7 +4,8 @@ import Title from "antd/lib/typography/Title";
 
 import SideBar from "../side-bar";
 
-const DefaultLayout = ({ children }: any) => {
+const DefaultLayout = ({ hideHeader, children }: any) => {
+  console.log(hideHeader);
   return (
     <Layout hasSider>
       <Sider
@@ -20,9 +21,11 @@ const DefaultLayout = ({ children }: any) => {
         <SideBar />
       </Sider>
       <Layout style={{ marginLeft: 200 }}>
-        <Header style={{ backgroundColor: "#D3D3D3" }}>
-          <Title>Playground</Title>
-        </Header>
+        {!hideHeader && (
+          <Header style={{ backgroundColor: "#D3D3D3" }}>
+            <Title>Playground</Title>
+          </Header>
+        )}
         <Content style={{ overflow: "initial" }}>{children}</Content>
       </Layout>
     </Layout>

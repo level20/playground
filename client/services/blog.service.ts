@@ -15,7 +15,7 @@ const getBlogQuery = `
     _createdAt,
     _updatedAt,
     title,
-    "body": {"text": body[0].children[0].text},
+    "body": body[0].children[0].text,
     "categories": categories[]->title,
     "author": { "name": author->name, "image": author->image.asset->url },
     "slug": slug.current  
