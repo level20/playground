@@ -1,0 +1,21 @@
+{
+  "name": "playground",
+  "version": "0.1.0",
+  "repository": "https://github.com/level20/pgr-life-client",
+  "author": "Level20",
+  "license": "none",
+  "private": true,
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "studio": "cd studio && npm run start",
+    "start": "concurrently --kill-others-on-fail \"npm run studio\" \"npm run client\"",
+    "i:studio": "cd studio && npm i",
+    "i:client": "cd client && npm i",
+    "i": "npm i && concurrently \"npm run i:e2e\" \"npm run i:client\" \"npm run i:marketing\" \"npm run i:studio\" \"npm run i:aura\" \"npm run i:lambdaDeps\" \"npm run i:statusUpdate\"",
+    "blow:modules": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +",
+    "blow:cache": "npm cache clear --force"
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
