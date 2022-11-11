@@ -9,7 +9,7 @@ interface BlogProps {
   posts: BlogPost[];
 }
 
-const Blog = ({ posts }: BlogProps) => {
+const Blogs = ({ posts }: BlogProps) => {
   return (
     <DefaultLayout headerTitle="Blogs">
       <Row style={{ marginLeft: "16px", marginRight: "16px" }}>
@@ -33,4 +33,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Blog;
+export default Blogs;

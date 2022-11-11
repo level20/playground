@@ -7,7 +7,7 @@ import { Routes } from "../../enums/routes.enum";
 
 enum MenuItem {
   Creations = "Creations",
-  Blog = "Blog",
+  Blogs = "Blogs",
 }
 
 const items = [
@@ -18,9 +18,9 @@ const items = [
     icon: React.createElement(CodeOutlined),
   },
   {
-    key: MenuItem.Blog,
-    label: MenuItem.Blog,
-    route: Routes.Blog,
+    key: MenuItem.Blogs,
+    label: MenuItem.Blogs,
+    route: Routes.Blogs,
     icon: React.createElement(UserOutlined),
   },
 ];
