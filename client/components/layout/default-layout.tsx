@@ -2,7 +2,7 @@ import { Layout } from "antd";
 const { Header, Sider, Content } = Layout;
 import Title from "antd/lib/typography/Title";
 
-import SideBar from "../side-bar";
+import SideBar from "./side-bar";
 
 const DefaultLayout = ({ hideHeader, headerTitle, children }: any) => {
   return (

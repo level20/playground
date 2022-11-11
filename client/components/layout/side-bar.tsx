@@ -3,7 +3,7 @@ import { Menu, Typography, Divider } from "antd";
 const { Title } = Typography;
 import { CodeOutlined, UserOutlined } from "@ant-design/icons";
 import React from "react";
-import { Routes } from "../enums/routes.enum";
+import { Routes } from "../../enums/routes.enum";
 
 enum MenuItem {
   Creations = "Creations",

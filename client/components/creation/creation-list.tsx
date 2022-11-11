@@ -40,7 +40,7 @@ const creations = [
   },
 ];
 
-const CreationContainer = () => {
+const CreationList = () => {
   return (
     <Row>
       {creations.map((creation, i) => (
@@ -57,4 +57,4 @@ const CreationContainer = () => {
   );
 };
 
-export default CreationContainer;
+export default CreationList;
