@@ -1,6 +1,6 @@
-import { Card, List } from "antd";
 import { createClient } from "next-sanity";
 import Blogs from "../components/blogs";
+import DefaultLayout from "../components/layout/default-layout";
 import { BlogPost } from "../models/blog-post";
 
 interface BlogProps {
@@ -9,10 +9,10 @@ interface BlogProps {
 
 const Blog = ({ posts }: BlogProps) => {
   return (
-    <>
+    <DefaultLayout>
       <h1>this is a blog</h1>
       <Blogs posts={posts}></Blogs>
-    </>
+    </DefaultLayout>
   );
 };
 
