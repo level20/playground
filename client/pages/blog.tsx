@@ -13,14 +13,14 @@ const Blog = ({ posts }: BlogProps) => {
   return (
     <DefaultLayout hideHeader="false">
       <Row style={{ marginLeft: "16px", marginRight: "16px" }}>
-        <Row className="gutter-row">
+        <Row>
           <Col>
             <Title style={{ marginBottom: "0" }}>Blogs</Title>
           </Col>
         </Row>
         <Divider />
-        <Row className="gutter-row">
-          <Col>
+        <Row style={{ width: "100%" }}>
+          <Col span={24}>
             <Blogs posts={posts}></Blogs>
           </Col>
         </Row>

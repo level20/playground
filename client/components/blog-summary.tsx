@@ -13,7 +13,7 @@ const BlogSummary = ({ blog }: BlogSummaryProps) => {
     <>
       <Card
         title={<Title level={4}>{blog?.title}</Title>}
-        style={{ padding: "16px", height: "300px", width: "450px" }}
+        style={{ padding: "16px", height: "300px", width: "100%" }}
       >
         <AuthorRow author={blog?.author}></AuthorRow>
         <Divider
