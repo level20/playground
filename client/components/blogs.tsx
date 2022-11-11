@@ -13,11 +13,11 @@ const Blogs = ({ posts }: BlogProps) => {
         grid={{
           gutter: 16,
           xs: 1,
-          sm: 2,
-          md: 2,
+          sm: 1,
+          md: 1,
           lg: 2,
-          xl: 3,
-          xxl: 3,
+          xl: 2,
+          xxl: 2,
         }}
         dataSource={posts}
         renderItem={(post) => (

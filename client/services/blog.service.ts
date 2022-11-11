@@ -16,6 +16,7 @@ const getBlogQuery = `
     _updatedAt,
     title,
     "body": body[0].children[0].text,
+    "summary": summary[0].children[0].text,
     "categories": categories[]->title,
     "author": { "name": author->name, "image": author->image.asset->url },
     "slug": slug.current  
