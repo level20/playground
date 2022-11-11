@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import { Menu, MenuProps } from "antd";
+import { Menu, Typography, Divider } from "antd";
+const { Title } = Typography;
 import { CodeOutlined, UserOutlined } from "@ant-design/icons";
 import React from "react";
 import { Routes } from "../enums/routes.enum";
@@ -34,6 +35,18 @@ const SideBar = () => {
 
   return (
     <>
+      <Title
+        level={3}
+        style={{
+          color: "white",
+          marginTop: "8px",
+          marginBottom: "8px",
+          marginLeft: "16px",
+        }}
+      >
+        Playground
+      </Title>
+      <Divider style={{ borderColor: "aquamarine" }} />
       <Menu theme="dark" mode="inline" items={items} onClick={onClick}></Menu>
     </>
   );

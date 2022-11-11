@@ -3,7 +3,7 @@ import DefaultLayout from "../components/layout/default-layout";
 
 const Home = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout headerTitle="Creations">
       <CreationContainer></CreationContainer>
     </DefaultLayout>
   );

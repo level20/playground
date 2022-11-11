@@ -11,14 +11,9 @@ interface BlogProps {
 
 const Blog = ({ posts }: BlogProps) => {
   return (
-    <DefaultLayout hideHeader="false">
+    <DefaultLayout headerTitle="Blogs">
       <Row style={{ marginLeft: "16px", marginRight: "16px" }}>
-        <Row>
-          <Col>
-            <Title style={{ marginBottom: "0" }}>Blogs</Title>
-          </Col>
-        </Row>
-        <Divider />
+        <Divider style={{ marginBottom: "16px", marginTop: "16px" }} />
         <Row style={{ width: "100%" }}>
           <Col span={24}>
             <Blogs posts={posts}></Blogs>
