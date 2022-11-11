@@ -10,12 +10,11 @@ export interface Creation {
   href: string;
 }
 
-interface CreationContainerProps {
+interface CreationListProps {
   creations: Creation[];
 }
 
-
-const CreationContainer = ({ creations }: CreationContainerProps) => {
+const CreationList = ({ creations }: CreationListProps) => {
   return (
     <Row>
       {creations.map((creation, i) => (
@@ -32,4 +31,4 @@ const CreationContainer = ({ creations }: CreationContainerProps) => {
   );
 };
 
-export default CreationContainer;
+export default CreationList;

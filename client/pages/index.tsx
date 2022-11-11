@@ -1,5 +1,5 @@
-import CreationContainer, { Creation } from "../components/creation-container";
 import { createClient } from "next-sanity";
+import CreationList, { Creation } from "../components/creation/creation-list";
 import DefaultLayout from "../components/layout/default-layout";
 
 export interface HomeProps {
@@ -8,8 +8,8 @@ export interface HomeProps {
 
 export default function Home({ creations }: HomeProps) {
   return (
-    <DefaultLayout>
-      <CreationContainer creations={creations}></CreationContainer>
+    <DefaultLayout headerTitle="Creations">
+      <CreationList creations={creations}></CreationList>
     </DefaultLayout>
   );
 }

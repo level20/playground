@@ -1,10 +1,11 @@
 import { Author } from "./author";
-import { Content } from "./content";
+import { Category } from "./category";
+import { SlugContent } from "./content";
 
-export interface BlogPost extends Content {
+export interface BlogPost extends SlugContent {
   title: string;
+  body: string;
+  summary: string;
   author: Author;
-  body: any;
-  categories: any;
-  slug: any;
+  categories: Category[];
 }

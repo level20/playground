@@ -1,10 +1,10 @@
 import { Layout } from "antd";
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout;
 import Title from "antd/lib/typography/Title";
 
-import SideBar from "../side-bar";
+import SideBar from "./side-bar";
 
-const DefaultLayout = ({ children }: any) => {
+const DefaultLayout = ({ hideHeader, headerTitle, children }: any) => {
   return (
     <Layout hasSider>
       <Sider
@@ -20,10 +20,16 @@ const DefaultLayout = ({ children }: any) => {
         <SideBar />
       </Sider>
       <Layout style={{ marginLeft: 200 }}>
-        <Header style={{ backgroundColor: "#D3D3D3" }}>
-          <Title>Playground</Title>
-        </Header>
-        <Content style={{ overflow: "initial" }}>{children}</Content>
+        {!hideHeader && (
+          <Header
+            style={{ backgroundColor: "aquamarine", textAlign: "center" }}
+          >
+            <Title>{headerTitle}</Title>
+          </Header>
+        )}
+        <Content style={{ overflow: "initial", height: "100vh" }}>
+          {children}
+        </Content>
       </Layout>
     </Layout>
   );

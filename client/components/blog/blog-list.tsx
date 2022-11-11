@@ -1,23 +1,23 @@
 import { List } from "antd";
-import { BlogPost } from "../models/blog-post";
+import { BlogPost } from "../../models/blog-post";
 import BlogSummary from "./blog-summary";
 
 interface BlogProps {
   posts: BlogPost[];
 }
 
-const Blogs = ({ posts }: BlogProps) => {
+const BlogList = ({ posts }: BlogProps) => {
   return (
     <>
       <List
         grid={{
           gutter: 16,
           xs: 1,
-          sm: 2,
-          md: 4,
-          lg: 4,
-          xl: 6,
-          xxl: 3,
+          sm: 1,
+          md: 1,
+          lg: 2,
+          xl: 2,
+          xxl: 2,
         }}
         dataSource={posts}
         renderItem={(post) => (
@@ -30,4 +30,4 @@ const Blogs = ({ posts }: BlogProps) => {
   );
 };
 
-export default Blogs;
+export default BlogList;
