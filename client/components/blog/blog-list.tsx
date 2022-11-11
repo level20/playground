@@ -1,12 +1,12 @@
 import { List } from "antd";
-import { BlogPost } from "../models/blog-post";
+import { BlogPost } from "../../models/blog-post";
 import BlogSummary from "./blog-summary";
 
 interface BlogProps {
   posts: BlogPost[];
 }
 
-const Blogs = ({ posts }: BlogProps) => {
+const BlogList = ({ posts }: BlogProps) => {
   return (
     <>
       <List
@@ -30,4 +30,4 @@ const Blogs = ({ posts }: BlogProps) => {
   );
 };
 
-export default Blogs;
+export default BlogList;

@@ -1,10 +1,10 @@
-import CreationContainer from "../components/creation-container";
+import CreationList from "../components/creation/creation-list";
 import DefaultLayout from "../components/layout/default-layout";
 
 const Home = () => {
   return (
     <DefaultLayout headerTitle="Creations">
-      <CreationContainer></CreationContainer>
+      <CreationList></CreationList>
     </DefaultLayout>
   );
 };

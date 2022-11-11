@@ -2,7 +2,7 @@ import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Card, Col, Divider, Row, Typography } from "antd";
 const { Title, Paragraph } = Typography;
 
-import { BlogPost } from "../models/blog-post";
+import { BlogPost } from "../../models/blog-post";
 
 interface BlogSummaryProps {
   blog: BlogPost;

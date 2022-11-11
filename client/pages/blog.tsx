@@ -1,6 +1,6 @@
 import { Col, Divider, Row, Typography } from "antd";
 const { Title } = Typography;
-import Blogs from "../components/blogs";
+import BlogList from "../components/blog/blog-list";
 import DefaultLayout from "../components/layout/default-layout";
 import { BlogPost } from "../models/blog-post";
 import { getBlogPosts } from "../services/blog.service";
@@ -16,7 +16,7 @@ const Blog = ({ posts }: BlogProps) => {
         <Divider style={{ marginBottom: "16px", marginTop: "16px" }} />
         <Row style={{ width: "100%" }}>
           <Col span={24}>
-            <Blogs posts={posts}></Blogs>
+            <BlogList posts={posts}></BlogList>
           </Col>
         </Row>
       </Row>
