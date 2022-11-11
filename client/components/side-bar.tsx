@@ -1,33 +1,35 @@
 import { useRouter } from "next/router";
 import { Menu, MenuProps } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { CodeOutlined, UserOutlined } from "@ant-design/icons";
 import React from "react";
 import { Routes } from "../enums/routes.enum";
 
 enum MenuItem {
+  Creations = "Creations",
   Blog = "Blog",
 }
 
-const items: MenuProps["items"] = [
+const items = [
+  {
+    key: MenuItem.Creations,
+    label: MenuItem.Creations,
+    route: Routes.Creations,
+    icon: React.createElement(CodeOutlined),
+  },
   {
     key: MenuItem.Blog,
-    icon: React.createElement(UserOutlined),
     label: MenuItem.Blog,
+    route: Routes.Blog,
+    icon: React.createElement(UserOutlined),
   },
 ];
 
 const SideBar = () => {
   const router = useRouter();
 
-  const onClick = ({ key, domEvent }: any) => {
+  const onClick = ({ item, domEvent }: any) => {
     domEvent.preventDefault();
-    switch (key) {
-      case MenuItem.Blog:
-        router.push(Routes.Blog);
-        break;
-      default:
-        break;
-    }
+    router.push(item?.props?.route);
   };
 
   return (
