@@ -11,7 +11,10 @@ interface BlogSummaryProps {
 const BlogSummary = ({ blog }: BlogSummaryProps) => {
   return (
     <>
-      <Card title={blog?.title} style={{ padding: "16px" }}>
+      <Card
+        title={<Title level={4}>{blog?.title}</Title>}
+        style={{ padding: "16px" }}
+      >
         <AuthorRow author={blog?.author}></AuthorRow>
         <Divider
           dashed={true}
@@ -34,7 +37,7 @@ const AuthorRow = ({ author }: any) => {
         <Avatar size="large" icon={<UserOutlined />} src={author?.image} />
       </Col>
       <Col span={20}>
-        <Title level={4}>{author?.name}</Title>
+        <Title level={5}>{author?.name}</Title>
       </Col>
     </Row>
   );
