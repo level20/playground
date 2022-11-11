@@ -1,13 +1,18 @@
 import { useRouter } from "next/router";
 import { Menu, Typography, Divider } from "antd";
 const { Title } = Typography;
-import { CodeOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  CodeOutlined,
+  SolutionOutlined,
+  DesktopOutlined,
+} from "@ant-design/icons";
 import React from "react";
 import { Routes } from "../../enums/routes.enum";
 
 enum MenuItem {
   Creations = "Creations",
   Blog = "Blog",
+  Studio = "Studio",
 }
 
 const items = [
@@ -21,7 +26,13 @@ const items = [
     key: MenuItem.Blog,
     label: MenuItem.Blog,
     route: Routes.BlogPosts,
-    icon: React.createElement(UserOutlined),
+    icon: React.createElement(SolutionOutlined),
+  },
+  {
+    key: MenuItem.Studio,
+    label: MenuItem.Studio,
+    route: Routes.Studio,
+    icon: React.createElement(DesktopOutlined),
   },
 ];
 
