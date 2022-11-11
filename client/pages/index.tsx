@@ -2,8 +2,8 @@ import { Layout } from 'antd'
 const { Header, Footer, Sider, Content } = Layout;
 import Title from 'antd/lib/typography/Title';
 
-import SideBar from './components/side-bar';
-import CreationContainer from './components/creation-container';
+import SideBar from '../components/side-bar';
+import CreationContainer from '../components/creation-container';
 
 export default function Home() {
   return (

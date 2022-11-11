@@ -13,6 +13,7 @@ src/components/Signature/test.pdf
 
 # production
 build
+dist
 
 # misc
 .DS_Store
