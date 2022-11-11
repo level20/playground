@@ -5,6 +5,7 @@ import { Content } from "./content";
 export interface BlogPost extends Content {
   title: string;
   body: string;
+  summary: string;
   author: Author;
   categories: Category[];
   slug: string;
