@@ -14,9 +14,9 @@ const Blogs = ({ posts }: BlogProps) => {
           gutter: 16,
           xs: 1,
           sm: 2,
-          md: 4,
-          lg: 4,
-          xl: 6,
+          md: 2,
+          lg: 2,
+          xl: 3,
           xxl: 3,
         }}
         dataSource={posts}
