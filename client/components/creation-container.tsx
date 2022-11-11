@@ -1,46 +1,21 @@
 import { Col, Row } from "antd";
 import Creation from "./creation";
 
-const creations = [
-  {
-    title: "FIFA Bracket",
-    description: "Predict the 2022 FIFA world cup results",
-    coverSrc: "/feras-wheel.png",
-    href: "www.level20.com",
-  },
-  {
-    title: "FIFA Bracket",
-    description: "Predict the 2022 FIFA world cup results",
-    coverSrc: "/feras-wheel.png",
-    href: "www.level20.com",
-  },
-  {
-    title: "FIFA Bracket",
-    description: "Predict the 2022 FIFA world cup results",
-    coverSrc: "/feras-wheel.png",
-    href: "www.level20.com",
-  },
-  {
-    title: "FIFA Bracket",
-    description: "Predict the 2022 FIFA world cup results",
-    coverSrc: "/feras-wheel.png",
-    href: "www.level20.com",
-  },
-  {
-    title: "FIFA Bracket",
-    description: "Predict the 2022 FIFA world cup results",
-    coverSrc: "/feras-wheel.png",
-    href: "www.level20.com",
-  },
-  {
-    title: "FIFA Bracket",
-    description: "Predict the 2022 FIFA world cup results",
-    coverSrc: "/feras-wheel.png",
-    href: "www.level20.com",
-  },
-];
+export interface Creation {
+  _id: string;
+  _type: string;
+  title: string;
+  description: string;
+  coverSrc: string;
+  href: string;
+}
 
-const CreationContainer = () => {
+interface CreationContainerProps {
+  creations: Creation[];
+}
+
+
+const CreationContainer = ({ creations }: CreationContainerProps) => {
   return (
     <Row>
       {creations.map((creation, i) => (

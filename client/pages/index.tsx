@@ -1,12 +1,40 @@
-import CreationContainer from "../components/creation-container";
+import CreationContainer, { Creation } from "../components/creation-container";
+import { createClient } from "next-sanity";
 import DefaultLayout from "../components/layout/default-layout";
 
-const Home = () => {
+export interface HomeProps {
+  creations: Creation[];
+}
+
+export default function Home({ creations }: HomeProps) {
   return (
     <DefaultLayout>
-      <CreationContainer></CreationContainer>
+      <CreationContainer creations={creations}></CreationContainer>
     </DefaultLayout>
   );
-};
+}
 
-export default Home;
+const client = createClient({
+  projectId: "23sk8kbd",
+  dataset: "production",
+  apiVersion: "2022-11-10",
+  useCdn: false,
+});
+
+export async function getStaticProps() {
+  const creations = await client.fetch(`*[
+    _type == "creation"
+  ]
+  {
+    title,
+    "description": description[0].children[0].text,
+    "href": link,
+    "coverSrc": mainImage.asset->.url
+  }`);
+
+  return {
+    props: {
+      creations,
+    },
+  };
+}
