@@ -29,8 +29,6 @@ const getAuthorQuery = groq`
   }
 `;
 
-const getSlugPathsQuery = groq`*[_type == "author" && defined(slug.current)][].slug.current`;
-
 const getAuthors = async (): Promise<Author[]> => {
   return await client.fetch(getAuthorsQuery);
 };
@@ -40,8 +38,4 @@ const getAuthor = async (slug: string): Promise<Author> => {
   return posts[0];
 };
 
-const getSlugPaths = async (): Promise<string[]> => {
-  return await client.fetch(getSlugPathsQuery);
-};
-
-export { getAuthors, getAuthor, getSlugPaths };
+export { getAuthors, getAuthor };

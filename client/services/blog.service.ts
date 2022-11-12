@@ -44,8 +44,4 @@ const getBlogPost = async (slug: string): Promise<BlogPost> => {
   return posts[0];
 };
 
-const getSlugPaths = async (): Promise<string[]> => {
-  return await client.fetch(getSlugPathsQuery);
-};
-
-export { getBlogPosts, getSlugPaths, getBlogPost };
+export { getBlogPosts, getBlogPost };

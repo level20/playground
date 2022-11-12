@@ -1,8 +1,10 @@
 import { Col, Divider, Row, Typography } from "antd";
 const { Title, Paragraph } = Typography;
 import DefaultLayout from "../../components/layout/default-layout";
+import { ContentType } from "../../enums/content-type.enum";
 import { Author } from "../../models/author";
-import { getAuthor, getSlugPaths } from "../../services/author.service";
+import { getAuthor } from "../../services/author.service";
+import { getSlugPaths } from "../../services/query.service";
 
 interface AuthorProps {
   author: Author;
@@ -29,7 +31,7 @@ const Author = ({ author }: AuthorProps) => {
 };
 
 export async function getStaticPaths() {
-  const paths = await getSlugPaths();
+  const paths = await getSlugPaths(ContentType.author);
   console.log(paths);
 
   return {
