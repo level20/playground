@@ -1,4 +1,4 @@
-import { createClient } from "next-sanity";
+import { createClient, groq } from "next-sanity";
 import { BlogPost } from "../models/blog-post";
 
 const client = createClient({
@@ -8,7 +8,7 @@ const client = createClient({
   useCdn: false,
 });
 
-const getBlogQuery = `
+const getBlogPostsQuery = groq`
   *[_type == "post"] {
     _id,
     _type,
@@ -17,14 +17,40 @@ const getBlogQuery = `
     title,
     "body": body[0].children[0].text,
     "summary": summary[0].children[0].text,
-    "categories": categories[]->title,
+    "categories": categories[]->{title, description},
     "author": { "name": author->name, "image": author->image.asset->url },
     "slug": slug.current  
   }
 `;
 
 const getBlogPosts = async (): Promise<BlogPost[]> => {
-  return await client.fetch(getBlogQuery);
+  return await client.fetch(getBlogPostsQuery);
 };
 
-export { getBlogPosts };
+const getBlogPostQuery = groq`
+  *[_type == "post" && slug.current == $slug] {
+    _id,
+    _type,
+    _createdAt,
+    _updatedAt,
+    title,
+    "body": body[0].children[0].text,
+    "summary": summary[0].children[0].text,
+    "categories": categories[]->{title, description},
+    "author": { "name": author->name, "image": author->image.asset->url },
+    "slug": slug.current  
+  }
+`;
+
+const getBlogPost = async (slug: string): Promise<BlogPost> => {
+  const posts = await client.fetch(getBlogPostQuery, { slug });
+  return posts[0];
+};
+
+const getSlugPathsQuery = groq`*[_type == "post" && defined(slug.current)][].slug.current`;
+
+const getSlugPaths = async (): Promise<string[]> => {
+  return await client.fetch(getSlugPathsQuery);
+};
+
+export { getBlogPosts, getSlugPaths, getBlogPost };

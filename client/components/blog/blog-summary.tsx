@@ -1,5 +1,7 @@
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Card, Col, Divider, Row, Typography } from "antd";
+import { useRouter } from "next/router";
+import { Routes } from "../../enums/routes.enum";
 const { Title, Paragraph } = Typography;
 
 import { BlogPost } from "../../models/blog-post";
@@ -9,11 +11,20 @@ interface BlogSummaryProps {
 }
 
 const BlogSummary = ({ blog }: BlogSummaryProps) => {
+  const router = useRouter();
+
+  const navigateToBlog = (event: any) => {
+    event.preventDefault();
+    router.push(`${Routes.Blog}/${blog?.slug}`);
+  };
+
   return (
     <>
       <Card
+        hoverable
         title={<Title level={4}>{blog?.title}</Title>}
         style={{ padding: "16px", height: "300px", width: "100%" }}
+        onClick={navigateToBlog}
       >
         <AuthorRow author={blog?.author}></AuthorRow>
         <Divider
