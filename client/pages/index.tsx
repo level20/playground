@@ -1,3 +1,4 @@
+import { Col, Divider, Row } from "antd";
 import { createClient } from "next-sanity";
 import CreationList from "../components/creation/creation-list";
 import DefaultLayout from "../components/layout/default-layout";
@@ -11,7 +12,13 @@ export interface HomeProps {
 const Home = ({ creations }: HomeProps) => {
   return (
     <DefaultLayout headerTitle="Creations">
-      <CreationList creations={creations}></CreationList>
+      <Row style={{ marginLeft: "16px", marginRight: "16px" }}>
+        <Row style={{ width: "100%" }}>
+          <Col span={24}>
+            <CreationList creations={creations}></CreationList>
+          </Col>
+        </Row>
+      </Row>
     </DefaultLayout>
   );
 };
