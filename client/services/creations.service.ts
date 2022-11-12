@@ -1,4 +1,5 @@
 import { createClient } from "next-sanity";
+import groq from "groq";
 import { Creation } from "../models/creation";
 
 const client = createClient({
@@ -8,10 +9,8 @@ const client = createClient({
   useCdn: false,
 });
 
-const getCreationsQuery = `*[
-  _type == "creation"
-]
-{
+const getCreationsQuery = groq`
+*[_type == "creation"]{
   title,
   "description": description[0].children[0].text,
   "href": link,
