@@ -1,4 +1,5 @@
 import { createClient } from "next-sanity";
+import groq from "groq";
 import { Author } from "../models/author";
 
 const client = createClient({
@@ -8,7 +9,7 @@ const client = createClient({
   useCdn: false,
 });
 
-const getAuthorQuery = `
+const getAuthorQuery = groq`
   *[_type == "author"]  {
     _id,
     _type,

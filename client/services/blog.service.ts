@@ -1,4 +1,5 @@
-import { createClient, groq } from "next-sanity";
+import { createClient } from "next-sanity";
+import groq from "groq";
 import { BlogPost } from "../models/blog-post";
 
 const client = createClient({
@@ -23,10 +24,6 @@ const getBlogPostsQuery = groq`
   }
 `;
 
-const getBlogPosts = async (): Promise<BlogPost[]> => {
-  return await client.fetch(getBlogPostsQuery);
-};
-
 const getBlogPostQuery = groq`
   *[_type == "post" && slug.current == $slug] {
     _id,
@@ -42,12 +39,16 @@ const getBlogPostQuery = groq`
   }
 `;
 
+const getSlugPathsQuery = groq`*[_type == "post" && defined(slug.current)][].slug.current`;
+
+const getBlogPosts = async (): Promise<BlogPost[]> => {
+  return await client.fetch(getBlogPostsQuery);
+};
+
 const getBlogPost = async (slug: string): Promise<BlogPost> => {
   const posts = await client.fetch(getBlogPostQuery, { slug });
   return posts[0];
 };
-
-const getSlugPathsQuery = groq`*[_type == "post" && defined(slug.current)][].slug.current`;
 
 const getSlugPaths = async (): Promise<string[]> => {
   return await client.fetch(getSlugPathsQuery);
