@@ -1,13 +1,7 @@
-import { createClient } from "next-sanity";
 import groq from "groq";
-import { Creation } from "../models/creation";
 
-const client = createClient({
-  projectId: "23sk8kbd",
-  dataset: "production",
-  apiVersion: "2022-11-10",
-  useCdn: false,
-});
+import { Creation } from "../models/creation";
+import { client } from "./query.service";
 
 const getCreationsQuery = groq`
 *[_type == "creation"]{

@@ -1,13 +1,7 @@
-import { createClient } from "next-sanity";
 import groq from "groq";
-import { BlogPost } from "../models/blog-post";
 
-const client = createClient({
-  projectId: "23sk8kbd",
-  dataset: "production",
-  apiVersion: "2022-11-10",
-  useCdn: false,
-});
+import { BlogPost } from "../models/blog-post";
+import { client } from "./query.service";
 
 const getBlogPostsQuery = groq`
   *[_type == "post"] {
