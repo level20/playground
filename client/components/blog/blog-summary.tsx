@@ -18,6 +18,11 @@ const BlogSummary = ({ blog }: BlogSummaryProps) => {
     router.push(`${Routes.Blog}/${blog?.slug}`);
   };
 
+  const navigateToAuthor = (event: any) => {
+    event.preventDefault();
+    router.push(`${Routes.Author}/${blog?.author?.slug}`);
+  };
+
   return (
     <>
       <Card
@@ -26,7 +31,7 @@ const BlogSummary = ({ blog }: BlogSummaryProps) => {
         style={{ padding: "16px", height: "300px", width: "100%" }}
         onClick={navigateToBlog}
       >
-        <AuthorRow author={blog?.author}></AuthorRow>
+        <AuthorRow onClick={navigateToAuthor} author={blog?.author}></AuthorRow>
         <Divider
           dashed={true}
           style={{ marginTop: "8px", marginBottom: "8px" }}

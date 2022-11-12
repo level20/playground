@@ -19,7 +19,7 @@ const getBlogPostsQuery = groq`
     "body": body[0].children[0].text,
     "summary": summary[0].children[0].text,
     "categories": categories[]->{title, description},
-    "author": { "name": author->name, "image": author->image.asset->url },
+    "author": { "name": author->name, "image": author->image.asset->url, "slug": author->slug.current },
     "slug": slug.current  
   }
 `;
@@ -34,7 +34,7 @@ const getBlogPostQuery = groq`
     "body": body[0].children[0].text,
     "summary": summary[0].children[0].text,
     "categories": categories[]->{title, description},
-    "author": { "name": author->name, "image": author->image.asset->url },
+    "author": { "name": author->name, "image": author->image.asset->url, "slug": author->slug.current },
     "slug": slug.current  
   }
 `;
