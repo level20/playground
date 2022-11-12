@@ -1,4 +1,4 @@
-import { Col, Row } from "antd";
+import { Col, List, Row } from "antd";
 import { Creation as CreationContent } from "../../models/creation";
 import Creation from "./creation";
 
@@ -8,18 +8,28 @@ interface CreationListProps {
 
 const CreationList = ({ creations }: CreationListProps) => {
   return (
-    <Row>
-      {creations.map((creation, i) => (
-        <Col key={`creation-${i}`} span={8}>
+    <List
+      grid={{
+        gutter: 16,
+        xs: 1,
+        sm: 1,
+        md: 2,
+        lg: 3,
+        xl: 4,
+        xxl: 4,
+      }}
+      dataSource={creations}
+      renderItem={(creation) => (
+        <List.Item>
           <Creation
             title={creation.title}
             description={creation.description}
             coverSrc={creation.coverSrc}
             href={creation.href}
           />
-        </Col>
-      ))}
-    </Row>
+        </List.Item>
+      )}
+    />
   );
 };
 
