@@ -2,27 +2,27 @@ import { Col, Divider, Row, Typography } from "antd";
 const { Title, Paragraph } = Typography;
 import DefaultLayout from "../../components/layout/default-layout";
 import { ContentType } from "../../enums/content-type.enum";
-import { BlogPost } from "../../models/blog-post";
-import { getBlogPost } from "../../services/blog.service";
+import { Author } from "../../models/author";
+import { getAuthor } from "../../services/author.service";
 import { getSlugPaths } from "../../services/query.service";
 
-interface BlogProps {
-  blog: BlogPost;
+interface AuthorProps {
+  author: Author;
 }
 
-const Blog = ({ blog }: BlogProps) => {
+const Author = ({ author }: AuthorProps) => {
   return (
     <DefaultLayout hideHeader>
       <Row style={{ marginLeft: "16px", marginRight: "16px" }}>
         <Row style={{ width: "100%" }}>
           <Col span={24}>
-            <Title>{blog?.title}</Title>
+            <Title>{author?.name}</Title>
           </Col>
         </Row>
         <Divider style={{ marginBottom: "16px", marginTop: "16px" }} />
         <Row style={{ width: "100%" }}>
           <Col span={24}>
-            <Paragraph>{blog?.body}</Paragraph>
+            <Paragraph>{author?.name}</Paragraph>
           </Col>
         </Row>
       </Row>
@@ -31,7 +31,7 @@ const Blog = ({ blog }: BlogProps) => {
 };
 
 export async function getStaticPaths() {
-  const paths = await getSlugPaths(ContentType.blog);
+  const paths = await getSlugPaths(ContentType.author);
 
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
@@ -41,13 +41,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: any) {
   const { slug = "" } = context.params;
-  const blog = await getBlogPost(slug);
+  const author = await getAuthor(slug);
 
   return {
     props: {
-      blog,
+      author,
     },
   };
 }
 
-export default Blog;
+export default Author;

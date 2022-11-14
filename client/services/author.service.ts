@@ -1,15 +1,9 @@
-import { createClient } from "next-sanity";
 import groq from "groq";
+
 import { Author } from "../models/author";
+import { client } from "./query.service";
 
-const client = createClient({
-  projectId: "23sk8kbd",
-  dataset: "production",
-  apiVersion: "2022-11-10",
-  useCdn: false,
-});
-
-const getAuthorQuery = groq`
+const getAuthorsQuery = groq`
   *[_type == "author"]  {
     _id,
     _type,
@@ -22,8 +16,26 @@ const getAuthorQuery = groq`
   }
 `;
 
+const getAuthorQuery = groq`
+  *[_type == "author" && slug.current == $slug]  {
+    _id,
+    _type,
+    _createdAt,
+    _updatedAt,
+    name,
+    "image": image.asset->url,  
+    "bio": bio[0].children[0].text,
+    "slug": slug.current  
+  }
+`;
+
 const getAuthors = async (): Promise<Author[]> => {
-  return await client.fetch(getAuthorQuery);
+  return await client.fetch(getAuthorsQuery);
 };
 
-export { getAuthors };
+const getAuthor = async (slug: string): Promise<Author> => {
+  const posts = await client.fetch(getAuthorQuery, { slug });
+  return posts[0];
+};
+
+export { getAuthors, getAuthor };
