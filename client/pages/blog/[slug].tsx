@@ -1,29 +1,18 @@
-import { Col, Divider, Row, Typography } from "antd";
-const { Title, Paragraph } = Typography;
 import DefaultLayout from "../../components/layout/default-layout";
+import BlogPost from "../../components/blog/blog-post";
 import { ContentType } from "../../enums/content-type.enum";
-import { BlogPost } from "../../models/blog-post";
+import { BlogPost as BlogPostType } from "../../models/blog-post";
 import { getBlogPost } from "../../services/blog.service";
 import { getSlugPaths } from "../../services/query.service";
 
 interface BlogProps {
-  blog: BlogPost;
+  blog: BlogPostType;
 }
 
 const Blog = ({ blog }: BlogProps) => {
   return (
     <DefaultLayout hideHeader>
-      <Row style={{ width: "100%" }}>
-        <Col span={24}>
-          <Title>{blog?.title}</Title>
-        </Col>
-      </Row>
-      <Divider style={{ marginBottom: "16px", marginTop: "16px" }} />
-      <Row style={{ width: "100%" }}>
-        <Col span={24}>
-          <Paragraph>{blog?.body}</Paragraph>
-        </Col>
-      </Row>
+      <BlogPost blog={blog} />
     </DefaultLayout>
   );
 };
