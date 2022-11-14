@@ -4,7 +4,7 @@ import { Routes } from "../../enums/routes.enum";
 const { Title, Paragraph, Text } = Typography;
 
 import { BlogPost } from "../../models/blog-post";
-import AuthorAvatar from "./author/author-avatar";
+import AuthorAvatar from "../author/author-avatar";
 
 interface BlogPostProps {
   blog: BlogPost;

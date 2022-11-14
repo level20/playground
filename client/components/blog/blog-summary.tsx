@@ -1,11 +1,10 @@
-import { UserOutlined } from "@ant-design/icons";
-import { Avatar, Card, Col, Divider, Row, Tooltip, Typography } from "antd";
+import { Card, Col, Row, Typography } from "antd";
 import { useRouter } from "next/router";
 import { Routes } from "../../enums/routes.enum";
 const { Title, Paragraph } = Typography;
 
 import { BlogPost } from "../../models/blog-post";
-import AuthorAvatar from "./author/author-avatar";
+import AuthorAvatar from "../author/author-avatar";
 
 interface BlogSummaryProps {
   blog: BlogPost;
