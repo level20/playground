@@ -13,18 +13,16 @@ interface AuthorProps {
 const Author = ({ author }: AuthorProps) => {
   return (
     <DefaultLayout hideHeader>
-      <Row style={{ marginLeft: "16px", marginRight: "16px" }}>
-        <Row style={{ width: "100%" }}>
-          <Col span={24}>
-            <Title>{author?.name}</Title>
-          </Col>
-        </Row>
-        <Divider style={{ marginBottom: "16px", marginTop: "16px" }} />
-        <Row style={{ width: "100%" }}>
-          <Col span={24}>
-            <Paragraph>{author?.name}</Paragraph>
-          </Col>
-        </Row>
+      <Row style={{ width: "100%" }}>
+        <Col span={24}>
+          <Title>{author?.name}</Title>
+        </Col>
+      </Row>
+      <Divider style={{ marginBottom: "16px", marginTop: "16px" }} />
+      <Row style={{ width: "100%" }}>
+        <Col span={24}>
+          <Paragraph>{author?.name}</Paragraph>
+        </Col>
       </Row>
     </DefaultLayout>
   );
