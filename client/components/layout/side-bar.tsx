@@ -1,7 +1,12 @@
 import { useRouter } from "next/router";
-import { Menu, Typography } from "antd";
-import { CodeOutlined, SolutionOutlined, DesktopOutlined } from "@ant-design/icons";
-import React , { useState } from "react";
+import { Divider, Menu, Typography } from "antd";
+const { Title } = Typography;
+import {
+  CodeOutlined,
+  SolutionOutlined,
+  DesktopOutlined,
+} from "@ant-design/icons";
+import React, { useState } from "react";
 import { Routes } from "../../enums/routes.enum";
 
 enum MenuItem {
@@ -43,6 +48,16 @@ const SideBar = () => {
 
   return (
     <>
+      <Title level={2} style={{ color: "#fff", margin: "16px 16px 0px 16px" }}>
+        Playground
+      </Title>
+      <Divider
+        style={{
+          borderColor: "aquamarine",
+          marginTop: "8px",
+          marginBottom: "8px",
+        }}
+      />
       <Menu theme="dark" mode="inline" items={items} onClick={onClick}></Menu>
     </>
   );
