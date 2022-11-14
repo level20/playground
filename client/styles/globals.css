@@ -24,19 +24,3 @@ a {
     background: black;
   }
 }
-
-.logo {
-  height: 32px;
-  margin: 16px;
-}
-
-.site-layout-sub-header-background {
-  text-align: center;
-}
-
-.site-layout-background {
-  background: #fff;
-}
-[data-theme="dark"] .site-layout-sub-header-background {
-  background: #141414;
-}

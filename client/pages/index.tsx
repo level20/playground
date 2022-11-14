@@ -12,12 +12,10 @@ export interface HomeProps {
 const Home = ({ creations }: HomeProps) => {
   return (
     <DefaultLayout headerTitle="Creations">
-      <Row style={{ marginLeft: "16px", marginRight: "16px" }}>
-        <Row style={{ width: "100%" }}>
-          <Col span={24}>
-            <CreationList creations={creations}></CreationList>
-          </Col>
-        </Row>
+      <Row style={{ width: "100%" }}>
+        <Col span={24}>
+          <CreationList creations={creations}></CreationList>
+        </Col>
       </Row>
     </DefaultLayout>
   );
