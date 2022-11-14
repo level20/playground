@@ -1,8 +1,10 @@
 import { Col, Divider, Row, Typography } from "antd";
 const { Title, Paragraph } = Typography;
 import DefaultLayout from "../../components/layout/default-layout";
+import { ContentType } from "../../enums/content-type.enum";
 import { BlogPost } from "../../models/blog-post";
-import { getBlogPost, getSlugPaths } from "../../services/blog.service";
+import { getBlogPost } from "../../services/blog.service";
+import { getSlugPaths } from "../../services/query.service";
 
 interface BlogProps {
   blog: BlogPost;
@@ -29,7 +31,7 @@ const Blog = ({ blog }: BlogProps) => {
 };
 
 export async function getStaticPaths() {
-  const paths = await getSlugPaths();
+  const paths = await getSlugPaths(ContentType.blog);
 
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),

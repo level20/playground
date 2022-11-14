@@ -32,7 +32,6 @@ const Author = ({ author }: AuthorProps) => {
 
 export async function getStaticPaths() {
   const paths = await getSlugPaths(ContentType.author);
-  console.log(paths);
 
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
