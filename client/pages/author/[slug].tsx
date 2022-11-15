@@ -1,4 +1,4 @@
-import { Col, Divider, Row, Typography } from "antd";
+import { Avatar, Col, Divider, Row, Typography } from "antd";
 const { Title, Paragraph } = Typography;
 import DefaultLayout from "../../components/layout/default-layout";
 import { ContentType } from "../../enums/content-type.enum";
@@ -13,15 +13,18 @@ interface AuthorProps {
 const Author = ({ author }: AuthorProps) => {
   return (
     <DefaultLayout hideHeader>
-      <Row style={{ width: "100%" }}>
+      <Row style={{ width: "100%", textAlign: "center" }}>
         <Col span={24}>
+          <Avatar size={275} src={author.image}></Avatar>
+        </Col>
+        <Col style={{ marginTop: "16px" }} span={24}>
           <Title>{author?.name}</Title>
         </Col>
       </Row>
       <Divider style={{ marginBottom: "16px", marginTop: "16px" }} />
       <Row style={{ width: "100%" }}>
         <Col span={24}>
-          <Paragraph>{author?.name}</Paragraph>
+          <Paragraph>{author?.bio}</Paragraph>
         </Col>
       </Row>
     </DefaultLayout>
