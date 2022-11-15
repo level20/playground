@@ -14,10 +14,10 @@ const BlogList = ({ posts }: BlogProps) => {
           gutter: 16,
           xs: 1,
           sm: 1,
-          md: 1,
-          lg: 2,
-          xl: 2,
-          xxl: 2,
+          md: 2,
+          lg: 3,
+          xl: 3,
+          xxl: 4,
         }}
         dataSource={posts}
         renderItem={(post) => (

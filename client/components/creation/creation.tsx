@@ -1,24 +1,45 @@
-import { Card } from "antd";
+import { Card, Col, Divider, Row, Typography } from "antd";
 import Image from "next/image";
+import AuthorAvatar from "../author/author-avatar";
+import { Creation as CreationType } from "../../models/creation";
+import { CategoryList } from "../category/categoryList";
+import AuthorSummary from "../author/author-summary";
 const { Meta } = Card;
 
 interface CreationProps {
-  title: string;
-  description: string;
-  coverSrc: string;
-  href: string;
+  creation: CreationType;
 }
 
-const Creation = ({ title, description, coverSrc, href }: CreationProps) => {
+const Creation = ({ creation }: CreationProps) => {
   return (
     <>
       <Card
         hoverable
-        style={{ margin: "16px" }}
-        cover={<Image src={coverSrc} alt={title} width={150} height={250} />}
-        onClick={() => window.open(href)}
+        style={{ padding: "8px", height: "500px", width: "100%" }}
+        cover={
+          <Image
+            src={creation?.coverSrc}
+            alt={creation?.title}
+            width={150}
+            height={250}
+          />
+        }
+        onClick={() => window.open(creation?.href)}
       >
-        <Meta title={title} description={description} />
+        <Meta
+          style={{ height: "100px" }}
+          title={creation?.title}
+          description={creation?.description}
+        />
+        <Divider></Divider>
+        <Row>
+          <Col span={24}>
+            <CategoryList categories={creation.categories} />
+          </Col>
+          <Col style={{ marginTop: "8px" }} span={24}>
+            <AuthorSummary author={creation.author} />
+          </Col>
+        </Row>
       </Card>
     </>
   );
