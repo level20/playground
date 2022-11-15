@@ -15,7 +15,7 @@ const Author = ({ author }: AuthorProps) => {
     <DefaultLayout hideHeader>
       <Row style={{ width: "100%", textAlign: "center" }}>
         <Col span={24}>
-          <Avatar size={275} src={author.image}></Avatar>
+          <Avatar size={275} src={author?.image}></Avatar>
         </Col>
         <Col style={{ marginTop: "16px" }} span={24}>
           <Title>{author?.name}</Title>
