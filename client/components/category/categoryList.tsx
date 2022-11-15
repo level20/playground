@@ -9,7 +9,9 @@ const CategoryList = ({ categories }: CategoryListProps) => {
   return (
     <div>
       {categories.map((category, i) => (
-        <Tag key={i}>{category.title}</Tag>
+        <Tag key={i} color={category.color}>
+          {category.title}
+        </Tag>
       ))}
     </div>
   );

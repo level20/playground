@@ -14,7 +14,7 @@ const getCreationsQuery = groq`
     "href": link,
     "coverSrc": mainImage.asset->.url,
     "author": author->{name, "image": image.asset->url},
-    "categories": categories[]->{title, description},
+    "categories": categories[]->{title, description, color},
     "slug": slug.current,
   }`;
 

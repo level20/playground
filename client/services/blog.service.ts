@@ -12,7 +12,7 @@ const getBlogPostsQuery = groq`
     title,
     "body": body[0].children[0].text,
     "summary": summary[0].children[0].text,
-    "categories": categories[]->{title, description},
+    "categories": categories[]->{title, description, color},
     "author": { "name": author->name, "image": author->image.asset->url, "slug": author->slug.current },
     "slug": slug.current  
   }
@@ -27,13 +27,11 @@ const getBlogPostQuery = groq`
     title,
     "body": body[0].children[0].text,
     "summary": summary[0].children[0].text,
-    "categories": categories[]->{title, description},
+    "categories": categories[]->{title, description, color},
     "author": { "name": author->name, "image": author->image.asset->url, "slug": author->slug.current },
     "slug": slug.current  
   }
 `;
-
-const getSlugPathsQuery = groq`*[_type == "post" && defined(slug.current)][].slug.current`;
 
 const getBlogPosts = async (): Promise<BlogPost[]> => {
   return await client.fetch(getBlogPostsQuery);
