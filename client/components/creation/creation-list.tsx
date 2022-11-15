@@ -21,12 +21,7 @@ const CreationList = ({ creations }: CreationListProps) => {
       dataSource={creations}
       renderItem={(creation) => (
         <List.Item>
-          <Creation
-            title={creation.title}
-            description={creation.description}
-            coverSrc={creation.coverSrc}
-            href={creation.href}
-          />
+          <Creation creation={creation} />
         </List.Item>
       )}
     />
