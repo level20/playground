@@ -6,7 +6,7 @@ import SideBar from "./side-bar";
 
 const DefaultLayout = ({ hideHeader, headerTitle, children }: any) => {
   return (
-    <Layout>
+    <Layout style={{ height: "100vh" }}>
       <Sider breakpoint="lg" collapsedWidth="0">
         <SideBar />
       </Sider>
@@ -21,10 +21,9 @@ const DefaultLayout = ({ hideHeader, headerTitle, children }: any) => {
         )}
         <Content
           style={{
-            overflow: "initial",
-            height: "100vh",
+            overflow: "scroll",
+            height: "100%",
             padding: "16px",
-            minHeight: 360,
           }}
         >
           {children}
